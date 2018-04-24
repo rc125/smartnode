@@ -58,6 +58,12 @@ touch ~/.smartcash/smartcash.conf
 # Change the directory to ~/.smartcash
 cd ~/.smartcash/
 
+# download bootstrap
+apt-get install unzip -y
+wget https://smartcash.cc/txindexstrap.zip
+unzip txindexstrap.zip
+rm txindexstrap.zip
+
 # Create the initial smartcash.conf file
 echo "rpcuser=${_rpcUserName}
 rpcpassword=${_rpcPassword}
