@@ -31,14 +31,6 @@ cd
 
 _sshPortNumber=22
 
-# Disabele IPv6
-echo "
-net.ipv6.conf.all.disable_ipv6 = 1
-net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1
-" >> /etc/sysctl.d/99-sysctl.conf
-sysctl -p 
-
 # Get a new privatekey by going to console >> debug and typing smartnode genkey
 printf "SmartNode GenKey: "
 read _nodePrivateKey
@@ -137,6 +129,14 @@ ufw logging on
 ufw default deny incoming
 ufw default allow outgoing
 ufw --force enable
+
+# Disabele IPv6
+echo "
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+" >> /etc/sysctl.d/99-sysctl.conf
+sysctl -p 
 
 # Reboot the server
 reboot
