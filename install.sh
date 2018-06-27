@@ -27,20 +27,17 @@ while true; do
  fi
 done
 
-# Warning that the script will reboot the server
-echo "WARNING: This script will reboot the server when it's finished."
-printf "Press Ctrl+C to cancel or Enter to continue: "
-read IGNORE
-
 cd
 
 _sshPortNumber=22
 
 # Disabele IPv6
-echo 'net.ipv6.conf.all.disable_ipv6 = 1
+echo "
+net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
-net.ipv6.conf.lo.disable_ipv6 = 1' >> /etc/sysctl.d/99-sysctl.conf
-sudo sysctl -p
+net.ipv6.conf.lo.disable_ipv6 = 1
+" >> /etc/sysctl.d/99-sysctl.conf
+sysctl -p 
 
 # Get a new privatekey by going to console >> debug and typing smartnode genkey
 printf "SmartNode GenKey: "
