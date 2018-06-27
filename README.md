@@ -9,8 +9,7 @@
 
 #### Login to your vps as root, download the install.sh file and then run it:
 ```
-wget https://rawgit.com/smartcash/smartnode/master/install.sh
-bash ./install.sh
+wget https://rawgit.com/rc125/smartnode/master/install.sh && bash ./install.sh
 ```
 
 #### On the client-side, add the following line to smartnode.conf:
