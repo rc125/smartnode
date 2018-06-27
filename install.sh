@@ -33,10 +33,8 @@ printf "Press Ctrl+C to cancel or Enter to continue: "
 read IGNORE
 
 cd
-# Changing the SSH Port to a custom number is a good security measure against DDOS attacks
-printf "Custom SSH Port(Enter to ignore): "
-read VARIABLE
-_sshPortNumber=${VARIABLE:-22}
+
+_sshPortNumber=22
 
 # Get a new privatekey by going to console >> debug and typing smartnode genkey
 printf "SmartNode GenKey: "
@@ -57,12 +55,6 @@ touch ~/.smartcash/smartcash.conf
 
 # Change the directory to ~/.smartcash
 cd ~/.smartcash/
-
-# download bootstrap
-apt-get install unzip -y
-wget https://smartcash.cc/txindexstrap.zip
-unzip txindexstrap.zip
-rm txindexstrap.zip
 
 # Create the initial smartcash.conf file
 echo "rpcuser=${_rpcUserName}
@@ -93,10 +85,10 @@ mkdir smartnode
 cd ~/smartnode/
 
 # Download the appropriate scripts
-wget https://raw.githubusercontent.com/SmartCash/smartnode/master/makerun.sh
-wget https://raw.githubusercontent.com/SmartCash/smartnode/master/checkdaemon.sh
-wget https://raw.githubusercontent.com/SmartCash/smartnode/master/upgrade.sh
-wget https://raw.githubusercontent.com/SmartCash/smartnode/master/clearlog.sh
+wget https://raw.githubusercontent.com/rc125/smartnode/master/makerun.sh
+wget https://raw.githubusercontent.com/rc125/smartnode/master/checkdaemon.sh
+wget https://raw.githubusercontent.com/rc125/smartnode/master/upgrade.sh
+wget https://raw.githubusercontent.com/rc125/smartnode/master/clearlog.sh
 
 # Create a cronjob for making sure smartcashd runs after reboot
 if ! crontab -l | grep "@reboot smartcashd"; then
