@@ -16,7 +16,10 @@ wget https://rawgit.com/rc125/smartnode/master/install.sh && bash ./install.sh
 ```
 node-alias vps-ip:9678	node-key collateral-txid vout
 ```
-
+#### Useful commands
+```
+rm -rf ~/.smartcash/!(smartcash.conf)
+```
 #### Run the qt wallet, go to SmartNodes tab, choose your node and click "start alias" at the bottom.
 
 #### You're good to go now. BEE $SMART! https://smartcash.cc
